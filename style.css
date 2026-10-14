@@ -158,3 +158,54 @@ footer {
 footer p {
     opacity: 0.8;
 }
+
+/* --- DROPDOWN NAVIGATION MENU --- */
+
+/* Position the parent relative so the menu positions itself underneath */
+.nav-links .dropdown {
+    position: relative;
+}
+
+/* Style for the dropdown container */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;       /* Positions it exactly below the nav bar item */
+    left: 0;
+    background-color: var(--white);
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    
+    /* Hidden states for clean transition */
+    display: block;  /* Keep display block for opacity transitions */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Individual links inside the dropdown */
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 400;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover effects inside the menu link */
+.dropdown-menu li a:hover {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+}
+
+/* Active Hover Trigger: Shows the menu smoothly when hovering over parent item */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
