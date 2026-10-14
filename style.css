@@ -26,14 +26,24 @@ body {
     line-height: 1.6;
 }
 
-/* --- NAVIGATION BAR --- */
+/* --- UPDATED NAVBAR WITH GLASS EFFECT --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 5%;
-    background-color: var(--white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    
+    /* 1. Make the background slightly transparent (using rgba) */
+    background-color: rgba(255, 255, 255, 0.75); 
+    
+    /* 2. Add the hardware-accelerated background blur */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    
+    /* Border and shadow styling */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    
     position: sticky;
     top: 0;
     z-index: 100;
@@ -167,24 +177,38 @@ footer p {
 }
 
 /* Style for the dropdown container */
+/* --- UPDATED DROPDOWN WITH FROSTED GLASS EFFECT --- */
 .dropdown-menu {
     position: absolute;
-    top: 100%;       /* Positions it exactly below the nav bar item */
+    top: 100%;       
     left: 0;
-    background-color: var(--white);
     min-width: 180px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
+    margin-top: 0.5rem;
     list-style: none;
     padding: 0.5rem 0;
-    margin-top: 0.5rem;
+    border-radius: 8px;
+
+    /* Transparent background + blur filter */
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); /* Safari support */
+    
+    /* Subtle sleek border outline and clean card shadow */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     
     /* Hidden states for clean transition */
-    display: block;  /* Keep display block for opacity transitions */
+    display: block;  
     opacity: 0;
     pointer-events: none;
     transform: translateY(10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Optional: Slight tint shift when you hover on individual drop items */
+.dropdown-menu li a:hover {
+    background-color: rgba(37, 99, 235, 0.08); /* Primary color with ultra-low opacity */
+    color: var(--primary-color);
 }
 
 /* Individual links inside the dropdown */
@@ -197,11 +221,6 @@ footer p {
     transition: background-color 0.2s, color 0.2s;
 }
 
-/* Hover effects inside the menu link */
-.dropdown-menu li a:hover {
-    background-color: var(--background-light);
-    color: var(--primary-color);
-}
 
 /* Active Hover Trigger: Shows the menu smoothly when hovering over parent item */
 .dropdown:hover .dropdown-menu {
